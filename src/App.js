@@ -50,7 +50,7 @@ function App() {
       setUser(signedOutUser);
     })
     .catch(err => {
-
+      console.log(err.message);
     })
   }
 
