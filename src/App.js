@@ -57,6 +57,15 @@ function App() {
   const handleBlur = (event) => {
     console.log(event.target.name);
     console.log(event.target.value);
+    if(event.target.name === 'email'){
+      const isEmailValid = /\S+@\S+\.\S+/.test(event.target.value);
+      console.log(isEmailValid);
+    }
+    if(event.target.name === 'password'){
+      const isPasswordValid = event.target.value.length > 6;
+      const paswordHasNumber = /\d{1}/.test(event.target.value);
+      console.log(isPasswordValid && paswordHasNumber)
+    }
   }
   const handleSubmit = () => {
 
