@@ -54,7 +54,7 @@ function App() {
     })
   }
 
-  const handleChange = (event) => {
+  const handleBlur = (event) => {
     console.log(event.target.name);
     console.log(event.target.value);
   }
@@ -77,9 +77,9 @@ function App() {
 
       <h1>Our Own Authentication System</h1>
       <form action="" onSubmit={handleSubmit}>
-      <input type="text" name="email" onBlur={handleChange} placeholder="Write your email address." required/>
+      <input type="text" name="email" onBlur={handleBlur} placeholder="Write your email address." required/>
       <br/>
-      <input type="password" name="password" onBlur={handleChange} placeholder="Your password" required/>
+      <input type="password" name="password" onBlur={handleBlur} placeholder="Your password" required/>
       <br/>
       <input type="button" value="Submit"/>
       </form>
