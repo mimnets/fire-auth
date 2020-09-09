@@ -41,7 +41,11 @@ function App() {
     <div className="App">
       <button onClick={handleSignIn}>Sign in</button>
       {
-        user.isSignedIn && <p>Welcome, {user.name}</p>
+        user.isSignedIn && <div>
+          <p>Welcome, {user.name}</p>
+          <p>Your email : {user.email}</p>
+          <img src={user.photo} alt=""/>
+          </div>
       }
     </div>
   );
