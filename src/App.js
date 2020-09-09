@@ -54,6 +54,14 @@ function App() {
     })
   }
 
+  const handleChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
+  }
+  const handleSubmit = () => {
+
+  }
+
   return (
     <div className="App">
       { 
@@ -66,6 +74,16 @@ function App() {
           <img src={user.photo} alt=""/>
           </div>
       }
+
+      <h1>Our Own Authentication System</h1>
+      <form action="" onSubmit={handleSubmit}>
+      <input type="text" name="email" onChange={handleChange} placeholder="Write your email address." required/>
+      <br/>
+      <input type="password" name="password" onChange={handleChange} placeholder="Your password" required/>
+      <br/>
+      <input type="button" value="Submit"/>
+      </form>
+
     </div>
   );
 }
