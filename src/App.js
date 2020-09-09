@@ -77,9 +77,9 @@ function App() {
 
       <h1>Our Own Authentication System</h1>
       <form action="" onSubmit={handleSubmit}>
-      <input type="text" name="email" onChange={handleChange} placeholder="Write your email address." required/>
+      <input type="text" name="email" onBlur={handleChange} placeholder="Write your email address." required/>
       <br/>
-      <input type="password" name="password" onChange={handleChange} placeholder="Your password" required/>
+      <input type="password" name="password" onBlur={handleChange} placeholder="Your password" required/>
       <br/>
       <input type="button" value="Submit"/>
       </form>
