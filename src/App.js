@@ -46,7 +46,9 @@ function App() {
         isSignedIn: false,
         name: '',
         photo:'',
-        email: ''
+        email: '',
+        error: '',
+        success: false
       }
       setUser(signedOutUser);
     })
@@ -74,9 +76,23 @@ function App() {
     }
   }
   const handleSubmit = (event) => {
-    console.log(user.email,user.password)
+    // console.log(user.email,user.password)
     if(user.email && user.password){
-      console.log('submitted')
+      firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+      .then( res => {
+        const newUserInfo = {...user};
+        newUserInfo.error = '';
+        newUserInfo.success = true;
+        setUser(newUserInfo);
+      })
+      .catch(error => {
+        // Handle Errors here.
+        const newUserInfo = {...user};
+        newUserInfo.error = error.message;
+        newUserInfo.success = false;
+        setUser(newUserInfo);
+        // ...
+      });
     }
     event.preventDefault();
   }
@@ -107,6 +123,8 @@ function App() {
       <br/>
       <input type="submit" value="Submit"/>
       </form>
+      <p style={{color:'red'}}>{user.error}</p>
+      {user.success && <p style={{color:'green'}}>User created successfully</p>}
 
     </div>
   );
