@@ -30,7 +30,7 @@ function App() {
         photo : photoURL
       }
       setUser(signedInUser);
-      console.log(email,displayName, photoURL);
+      console.log(email, displayName, photoURL);
 
     })
     .catch(error =>{
@@ -57,8 +57,6 @@ function App() {
 
   const handleBlur = (event) => {
     let isFieldValid = true;
-    console.log(event.target.name);
-    console.log(event.target.value);
     if(event.target.name === 'email'){
       isFieldValid = /\S+@\S+\.\S+/.test(event.target.value);
       // console.log(isEmailValid);
@@ -75,8 +73,12 @@ function App() {
       setUser(newUserInfo);
     }
   }
-  const handleSubmit = () => {
-
+  const handleSubmit = (event) => {
+    console.log(user.email,user.password)
+    if(user.email && user.password){
+      console.log('submitted')
+    }
+    event.preventDefault();
   }
 
   return (
@@ -97,13 +99,13 @@ function App() {
       <p>Email: {user.email}</p>
       <p>Password: {user.password}</p> */}
       <form action="" onSubmit={handleSubmit}>
-      <input name="name" type="text" onBlur={handleBlur} placeholder="you name" required/>
+      <input name="name" type="text" onBlur={handleBlur} placeholder="you name"/>
         <br/>
       <input type="text" name="email" onBlur={handleBlur} placeholder="Write your email address." required/>
       <br/>
       <input type="password" name="password" onBlur={handleBlur} placeholder="Your password" required/>
       <br/>
-      <button>Submit</button>
+      <input type="submit" value="Submit"/>
       </form>
 
     </div>
