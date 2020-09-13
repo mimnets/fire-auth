@@ -12,7 +12,8 @@ function App() {
     isSignedIn: false,
     name: '',
     email: '',
-    photoURL: ''
+    photoURL: '',
+    password: '',
   })
 
 
@@ -45,8 +46,7 @@ function App() {
         isSignedIn: false,
         name: '',
         photo:'',
-        email: '',
-        password: ''
+        email: ''
       }
       setUser(signedOutUser);
     })
@@ -103,7 +103,7 @@ function App() {
       <br/>
       <input type="password" name="password" onBlur={handleBlur} placeholder="Your password" required/>
       <br/>
-      <input type="button" value="Submit"/>
+      <button>Submit</button>
       </form>
 
     </div>
